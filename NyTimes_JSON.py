@@ -23,5 +23,8 @@ URLS = {
 IMDB = {
     'movies': {
         'top250': 'https://www.imdb.com/chart/toptv/?sort=ir,desc&mode=simple&page=1'
+    },
+    'tv':   {
+        'top250': 'https://www.imdb.com/chart/top'
     }
 }
