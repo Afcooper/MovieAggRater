@@ -1,11 +1,11 @@
 import requests
 from bs4 import BeautifulSoup, NavigableString
-import NyTimes_JSON
+import Urls
 import requests
 from bs4 import BeautifulSoup
 import lxml
 import json
-import NyTimes_JSON
+import Urls
 import re
 
 tags = ['tr', 'a', 'td', 'title']
@@ -117,8 +117,9 @@ def getRatings(ratings):
 
 
 if __name__ == '__main__':
-    c =  IMDB(NyTimes_JSON.IMDB['movies']['top250'])
-    g = IMDB(NyTimes_JSON.IMDB['tv']['top250'])
-    print(g.dict)
+    mtop250 =  IMDB(Urls.IMDB['movies']['top250'])
+    tvtop250 = IMDB(Urls.IMDB['tv']['top250'])
+    tvpopular250 = IMDB(Urls.IMDB['tv']['popular_top250'])
+    low250 = IMDB(Urls.IMDB['movies']['low250'])
     with open('imdbrating.json', 'w') as fp:
-        json.dump(c.dict, fp,  sort_keys=True, indent=4, separators=(',',':'))
+        json.dump(tvpopular250.dict, fp,  sort_keys=True, indent=4, separators=(',',':'))

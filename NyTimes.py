@@ -1,11 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
-import NyTimes_JSON
+import Urls
 import requests
 from bs4 import BeautifulSoup
 import lxml
 import json
-import NyTimes_JSON
+import Urls
 
 tags = ['h2', 'p']
 class NyTimes:
@@ -88,8 +88,8 @@ if __name__ == '__main__':
     #print(NyTimes_JSON.URLS['tech'])
     dict = {}
     count = 0
-    for url in NyTimes_JSON.URLS:
-        dict[url] = NyTimes(NyTimes_JSON.URLS[url])
+    for url in Urls.URLS:
+        dict[url] = NyTimes(Urls.URLS[url])
         dict[url] = dict[url].dict
     with open('app.json', 'w') as fp:
         json.dump(dict, fp,  sort_keys=True, indent=4, separators=(',',':'))
